@@ -1,5 +1,4 @@
 {
-  "version": 2,
   "buildCommand": "cd webapp && npm install && npm run build",
   "outputDirectory": "webapp/dist",
   "functions": {
@@ -7,17 +6,10 @@
       "includeFiles": "backend/**"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.py"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/api/(.*)",
+      "destination": "/api/index.py"
     }
   ]
 }
