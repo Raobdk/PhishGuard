@@ -208,7 +208,7 @@ def lab():
 @app.errorhandler(404)
 def not_found(_):
     if request.path.startswith("/api/"):
-        return jsonify({"error": f"Not found. Path: {request.path}"}), 404
+        return jsonify({"error": f"Not found. Path: {request.path}", "headers": dict(request.headers)}), 404
     return "Not found", 404
 
 

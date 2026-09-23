@@ -5,5 +5,11 @@
     "api/**/*.py": {
       "includeFiles": "backend/**"
     }
-  }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py?__path=$1"
+    }
+  ]
 }
