@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: phishguard
+    env: python
+    plan: free
+    buildCommand: "cd phishguard_web/webapp && npm install && npm run build && cd ../backend && pip install -r ../requirements.txt"
+    startCommand: "cd phishguard_web/backend && python app.py"
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false

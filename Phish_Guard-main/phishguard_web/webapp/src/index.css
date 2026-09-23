@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #0a0e14;
+    color: #e6edf3;
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d1117;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2d3548;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #58a6ff;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(17, 22, 31, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(88, 166, 255, 0.12);
+  }
+  .glass-hover {
+    transition: all 0.3s ease;
+  }
+  .glass-hover:hover {
+    background: rgba(22, 27, 34, 0.8);
+    border-color: rgba(88, 166, 255, 0.3);
+    box-shadow: 0 0 24px -4px rgba(88, 166, 255, 0.25);
+  }
+  .glow-defender {
+    box-shadow: 0 0 20px -4px rgba(88, 166, 255, 0.4);
+  }
+  .glow-toxic {
+    box-shadow: 0 0 20px -4px rgba(63, 185, 80, 0.4);
+  }
+  .glow-danger {
+    box-shadow: 0 0 20px -4px rgba(248, 81, 73, 0.4);
+  }
+  .text-glow-defender {
+    text-shadow: 0 0 8px rgba(88, 166, 255, 0.6);
+  }
+  .text-glow-toxic {
+    text-shadow: 0 0 8px rgba(63, 185, 80, 0.6);
+  }
+  .text-glow-danger {
+    text-shadow: 0 0 8px rgba(248, 81, 73, 0.6);
+  }
+  .btn-glow {
+    transition: all 0.25s ease;
+  }
+  .btn-glow:hover {
+    box-shadow: 0 0 20px 0 currentColor;
+    transform: translateY(-1px);
+  }
+  .scanlines::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.15) 3px,
+      rgba(0, 0, 0, 0.15) 4px
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  .tilt-3d {
+    transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    will-change: transform;
+  }
+  .tilt-3d:hover {
+    transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-4px) translateZ(10px);
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.5), 0 0 24px -4px rgba(88, 166, 255, 0.25);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(88, 166, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(88, 166, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
